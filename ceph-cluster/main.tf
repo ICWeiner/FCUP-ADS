@@ -19,6 +19,20 @@ resource "google_compute_subnetwork" "my_subnetwork" {
   private_ip_google_access = true
 }
 
+resource "google_compute_firewall" "ceph_cluster" {
+  name    = "ceph-cluster-firewall"
+  network = google_compute_network.my_vpc.self_link
+
+  allow {
+    protocol = "tcp"
+    ports    = ["3300"]  # Adjust ports as needed for Ceph
+  }
+
+  source_ranges = ["0.0.0.0/0"]  # Adjust as needed for your network security
+
+  target_tags = ["ceph-nodes"]  # Apply this firewall rule to instances with this tag
+}
+
 
 # OSD Instances
 module "osd" {
@@ -121,11 +135,11 @@ data "template_file" "cephadm_config" {
     osd_host_1          = module.osd.osd_reserved_external_ips[0]
     osd_host_2          = module.osd.osd_reserved_external_ips[1]
 
-    mon_hosts = module.mon.mon_reserved_external_ip
+    mon_host = module.mon.mon_reserved_external_ip
 
-    mgr_hosts = module.mgr.mgr_reserved_external_ip
+    mgr_host = module.mgr.mgr_reserved_external_ip
 
-    rbd_hosts = module.rbd.rbd_reserved_external_ip
+    rbd_host = module.rbd.rbd_reserved_external_ip
 
   }
 }

@@ -17,6 +17,8 @@ resource "google_compute_instance" "rbd_client_instance" {
   machine_type = var.gcp_default_machine_type
   zone         = var.gcp_region
 
+  tags = ["ceph-nodes"]
+
   boot_disk {
                 initialize_params {
                         image = var.gcp_default_machine_image

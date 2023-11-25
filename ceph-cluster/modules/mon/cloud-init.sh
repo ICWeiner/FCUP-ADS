@@ -4,4 +4,4 @@
 apt-get update
 
 # Install cephadm
-apt-get install -y ceph cephadm
+sudo apt install -y ceph cephadm

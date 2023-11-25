@@ -9,14 +9,14 @@ osd:
 mon:
   count: 1
   hosts:
-    - ${mon_host_1}
+    - ${mon_host}
 
 mgr:
   count: 1
   hosts:
-    - ${mgr_host_1}
+    - ${mgr_host}
 
 rbd:
   count: 1
   hosts:
-    - ${rbd_host_1}
+    - ${rbd_host}
