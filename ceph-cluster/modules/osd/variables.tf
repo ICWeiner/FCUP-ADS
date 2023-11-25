@@ -9,6 +9,10 @@ variable "gcp_region" {
   type    = string
 }
 
+variable "gcp_region_network" {
+  type    = string
+}
+
 variable "gcp_default_machine_type" {
   type    = string
 }

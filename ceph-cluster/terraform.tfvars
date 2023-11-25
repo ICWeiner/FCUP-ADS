@@ -8,6 +8,8 @@ gcp_project_id = "sys-admin-project-402817"
 
 gcp_region = "europe-west1-b"
 
+gcp_region_network = "europe-west1"
+
 gcp_default_machine_type = "e2-medium"
 
 gcp_default_machine_image = "debian-cloud/debian-11"

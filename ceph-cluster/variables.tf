@@ -13,6 +13,10 @@ variable "gcp_region" {
   type    = string
 }
 
+variable "gcp_region_network" {
+  type    = string
+}
+
 variable "osd_instance_count" {
   type    = number
   description = "Default count of OSD instances"
