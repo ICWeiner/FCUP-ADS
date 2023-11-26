@@ -1,0 +1,19 @@
+ceph Dashboard is now available at:
+
+             URL: https://ceph-mon.europe-west1-b.c.sys-admin-project-402817.internal:8443/
+            User: admin
+        Password: mj77crbu6g
+
+You can access the Ceph CLI with:
+
+        sudo /usr/sbin/cephadm shell --fsid d873a840-8c44-11ee-be78-19f423d00d19 -c /etc/ceph/ceph.conf -k /etc/ceph/ceph.client.admin.keyring
+
+Please consider enabling telemetry to help improve Ceph:
+
+        ceph telemetry on
+
+For more information see:
+
+        https://docs.ceph.com/docs/master/mgr/telemetry/
+
+Bootstrap complete.

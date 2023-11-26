@@ -12,4 +12,4 @@ gcp_region_network = "europe-west1"
 
 gcp_default_machine_type = "e2-medium"
 
-gcp_default_machine_image = "ubuntu-os-cloud/ubuntu-2204-lts"
+gcp_default_machine_image = "ubuntu-os-cloud/ubuntu-2004-lts"
