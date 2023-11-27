@@ -17,11 +17,6 @@ variable "gcp_region_network" {
   type    = string
 }
 
-variable "osd_instance_count" {
-  type    = number
-  description = "Default count of OSD instances"
-}
-
 variable "gcp_default_machine_type" {
   type    = string
 }
@@ -29,4 +24,14 @@ variable "gcp_default_machine_type" {
 variable "gcp_default_machine_image"{
   type    = string
   description = "Default OS image for the VMs"
+}
+
+
+variable "osd_instance_count" {
+  type    = number
+  description = "Default count of OSD instances"
+}
+
+variable "osd_data_disk_size_gb"{
+  type    = number
 }

@@ -4,6 +4,10 @@ variable "osd_instance_count" {
   type    = number
 }
 
+variable "osd_data_disk_size_gb"{
+  type    = number
+}
+
 
 variable "gcp_region" {
   type    = string

@@ -2,7 +2,9 @@
 
 osd_instance_count = 2
 
-gcp_credentials_path = "~/Documents/sys-admin-project-402817-f324568b3320.json"
+osd_data_disk_size_gb = 10
+
+gcp_credentials_path = "~/Documents/sys-admin-project-402817-0f23f6083b86.json"
 
 gcp_project_id = "sys-admin-project-402817"
 

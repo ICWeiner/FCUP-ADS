@@ -37,7 +37,10 @@ resource "google_compute_firewall" "ceph_cluster" {
 # OSD Instances
 module "osd" {
   source               = "./modules/osd"
+
   osd_instance_count = var.osd_instance_count
+  osd_data_disk_size_gb = var.osd_data_disk_size_gb
+
   gcp_default_machine_type = var.gcp_default_machine_type
   gcp_region = var.gcp_region
   gcp_region_network = var.gcp_region_network
