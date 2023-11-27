@@ -35,3 +35,7 @@ variable "osd_instance_count" {
 variable "osd_data_disk_size_gb"{
   type    = number
 }
+
+variable "gcp_data_disk_type"{
+  type    = string
+}

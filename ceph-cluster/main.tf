@@ -40,6 +40,7 @@ module "osd" {
 
   osd_instance_count = var.osd_instance_count
   osd_data_disk_size_gb = var.osd_data_disk_size_gb
+  gcp_data_disk_type = var.gcp_data_disk_type
 
   gcp_default_machine_type = var.gcp_default_machine_type
   gcp_region = var.gcp_region

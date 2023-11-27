@@ -8,6 +8,10 @@ variable "osd_data_disk_size_gb"{
   type    = number
 }
 
+variable "gcp_data_disk_type"{
+  type    = string
+}
+
 
 variable "gcp_region" {
   type    = string
