@@ -1,0 +1,22 @@
+# cephadm-config.yaml.tpl
+
+osd:
+  count: 2
+  hosts:
+    - 35.240.113.35
+    - 34.38.39.86
+
+mon:
+  count: 1
+  hosts:
+    - 35.187.27.91
+
+mgr:
+  count: 1
+  hosts:
+    - 35.205.242.35
+
+rbd:
+  count: 1
+  hosts:
+    - 104.199.12.216
