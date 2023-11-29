@@ -4,4 +4,4 @@
 apt-get update
 
 # Install cephadm
-sudo apt install -y ceph docker.io
+sudo apt install -y docker.io

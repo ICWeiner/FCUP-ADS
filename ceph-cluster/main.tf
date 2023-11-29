@@ -33,6 +33,20 @@ resource "google_compute_firewall" "ceph_cluster" {
   target_tags = ["ceph-nodes"]  # Apply this firewall rule to instances with this tag
 }
 
+resource "google_compute_firewall" "ceph_dashboard" {
+  name    = "ceph-cashboard-firewall"
+  network = google_compute_network.my_vpc.self_link
+
+  allow {
+    protocol = "tcp"
+    ports    = ["8443"]  # Adjust ports as needed for Ceph
+  }
+
+  source_ranges = ["0.0.0.0/0"]  # Adjust as needed for your network security
+
+  target_tags = ["ceph-dashboard"]  # Apply this firewall rule to instances with this tag
+}
+
 
 # OSD Instances
 module "osd" {
