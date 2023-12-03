@@ -19,7 +19,7 @@ resource "google_compute_instance" "mgr_instance" {
 
   metadata_startup_script = file("${path.module}/cloud-init.sh")
 
-  tags = ["ceph-nodes"]
+  tags = ["ceph-nodes","ceph-dashboard"]
 
   boot_disk {
                 initialize_params {
