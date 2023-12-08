@@ -19,7 +19,7 @@ resource "google_compute_instance" "rbd_client_instance" {
 
   metadata_startup_script = file("${path.module}/cloud-init.sh")
 
-  tags = ["ceph-nodes"]
+  tags = ["ceph-nodes","postgres"]
 
   boot_disk {
                 initialize_params {

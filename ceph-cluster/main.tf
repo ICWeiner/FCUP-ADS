@@ -6,22 +6,9 @@ provider "google" {
   region      = var.gcp_region
 }
 
-resource "google_compute_network" "my_vpc" {
-  name                    = "my-vpc"
-  auto_create_subnetworks = false
-}
-
-resource "google_compute_subnetwork" "my_subnetwork" {
-  name                     = "my-subnetwork"
-  region                   = var.gcp_region_network
-  network                  = google_compute_network.my_vpc.self_link
-  ip_cidr_range            = "10.0.1.0/24" 
-  private_ip_google_access = true
-}
-
 resource "google_compute_firewall" "ceph_cluster" {
   name    = "ceph-cluster-firewall"
-  network = google_compute_network.my_vpc.self_link
+  network = "default"
 
   allow {
     protocol = "tcp"
@@ -35,7 +22,7 @@ resource "google_compute_firewall" "ceph_cluster" {
 
 resource "google_compute_firewall" "ceph_dashboard" {
   name    = "ceph-cashboard-firewall"
-  network = google_compute_network.my_vpc.self_link
+  network = "default"
 
   allow {
     protocol = "tcp"
@@ -45,6 +32,20 @@ resource "google_compute_firewall" "ceph_dashboard" {
   source_ranges = ["0.0.0.0/0"]  # Adjust as needed for your network security
 
   target_tags = ["ceph-dashboard"]  # Apply this firewall rule to instances with this tag
+}
+
+resource "google_compute_firewall" "postgres" {
+  name    = "postgres-firewall"
+  network = "default"
+
+  allow {
+    protocol = "tcp"
+    ports    = ["5432"]  # Adjust ports as needed for Ceph
+  }
+
+  source_ranges = ["0.0.0.0/0"]  # Adjust as needed for your network security
+
+  target_tags = ["postgres"]  # Apply this firewall rule to instances with this tag
 }
 
 

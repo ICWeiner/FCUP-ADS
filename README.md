@@ -1,10 +1,18 @@
 # FCUP-ADS
 
-### É PRECISO TIRAR "MY VPC" DO MAIN
-### É PRECISO POR AS REGRAS DA FIREWALL NA DEFAULT VPC
-### OU PASSAR AS VMS PARA A "MY VPC", whatever
-
 Steps
+
+create project
+
+create service account
+
+add service account key (json)
+
+add path to service account key in terraform.tfvars
+
+add project name to terraform.tfvars
+
+enable compute engine API
 
 create ssh key in ceph-mon
 
@@ -51,7 +59,13 @@ on ceph RBD client:
     
     run "sudo rsync -av /var/lib/postgresql /mnt/postgres"
 
-    access  /etc/postgresql/14/main/postgresql.conf and modify the data_directory entry to "/mnt/postgres"
+    access  /etc/postgresql/12/main/postgresql.conf and modify:
+        
+        data_directory entry to "/mnt/postgres"
+
+        listen_addresses to " '*' "
+    
+    access /etc/postgresql/12/main/pg_hba.conf  and add to the end " host all all 10.0.0.0/24 md5"
 
     run "sudo systemctl start postgresql"
 
@@ -61,4 +75,3 @@ on <backup-server-node> create a script with "rsync -avz --delete ceph-rbd-clien
 
 access cron using "crontab -e" and add "*/30 * * * * ~/backup-script.sh >> /path/to/backup.log 2>&1" to the end
 
-... more to come
