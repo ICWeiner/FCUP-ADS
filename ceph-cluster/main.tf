@@ -12,7 +12,7 @@ resource "google_compute_firewall" "ceph_cluster" {
 
   allow {
     protocol = "tcp"
-    ports    = ["3300"]  # Adjust ports as needed for Ceph
+    ports    = ["3300"]  
   }
 
   source_ranges = ["0.0.0.0/0"]  # Adjust as needed for your network security
@@ -26,12 +26,12 @@ resource "google_compute_firewall" "ceph_dashboard" {
 
   allow {
     protocol = "tcp"
-    ports    = ["8443"]  # Adjust ports as needed for Ceph
+    ports    = ["8443"] 
   }
 
-  source_ranges = ["0.0.0.0/0"]  # Adjust as needed for your network security
+  source_ranges = ["0.0.0.0/0"] 
 
-  target_tags = ["ceph-dashboard"]  # Apply this firewall rule to instances with this tag
+  target_tags = ["ceph-dashboard"]  
 }
 
 resource "google_compute_firewall" "postgres" {
@@ -40,12 +40,12 @@ resource "google_compute_firewall" "postgres" {
 
   allow {
     protocol = "tcp"
-    ports    = ["5432"]  # Adjust ports as needed for Ceph
+    ports    = ["5432"]  
   }
 
-  source_ranges = ["0.0.0.0/0"]  # Adjust as needed for your network security
+  source_ranges = ["0.0.0.0/0"]  
 
-  target_tags = ["postgres"]  # Apply this firewall rule to instances with this tag
+  target_tags = ["postgres"]
 }
 
 

@@ -7,7 +7,7 @@ resource "google_compute_address" "mgr_reserved_external_ip" {
 }
 
 resource "google_compute_address" "mgr_reserved_internal_ip" {
-  name   = "mgr-reserved-internal-ip"  # You can customize the name
+  name   = "mgr-reserved-internal-ip" 
   region = var.gcp_region_network
   address_type = "INTERNAL"
 }

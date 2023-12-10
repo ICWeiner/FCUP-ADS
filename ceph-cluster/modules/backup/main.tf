@@ -6,7 +6,7 @@ resource "google_compute_address" "backup_reserved_external_ip" {
 }
 
 resource "google_compute_address" "backup_reserved_internal_ip" {
-  name   = "backup-reserved-internal-ip"  # You can customize the name
+  name   = "backup-reserved-internal-ip" 
   region = var.gcp_region_network
   address_type = "INTERNAL"
 }

@@ -6,7 +6,7 @@ resource "google_compute_address" "rbd_reserved_external_ip" {
 }
 
 resource "google_compute_address" "rbd_reserved_internal_ip" {
-  name   = "rbd-reserved-internal-ip"  # You can customize the name
+  name   = "rbd-reserved-internal-ip" 
   region = var.gcp_region_network
   address_type = "INTERNAL"
 }
