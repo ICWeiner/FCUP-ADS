@@ -6,9 +6,9 @@ osd_data_disk_size_gb = 10
 
 gcp_data_disk_type = "pd-standard"
 
-gcp_credentials_path = "~/Documents/sys-admin-project-402817-f324568b3320.json"
+gcp_credentials_path = "/home/diogo/Downloads/teste-407517-0e6151d0894b.json"
 
-gcp_project_id = "sys-admin-project-402817"
+gcp_project_id = "teste-407517"
 
 gcp_region = "europe-west1-b"
 

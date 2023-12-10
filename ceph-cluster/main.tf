@@ -144,26 +144,3 @@ output "backup_reserved_external_ip" {
 output "backup_reserved_internal_ip" {
   value = module.backup.backup_reserved_internal_ip
 }
-
-
-data "template_file" "cephadm_config" {
-  template = file("${path.module}/cephadm-config.yaml.tpl")
-
-  vars = {
-    osd_instance_count  = var.osd_instance_count
-    osd_host_1          = module.osd.osd_reserved_external_ips[0]
-    osd_host_2          = module.osd.osd_reserved_external_ips[1]
-
-    mon_host = module.mon.mon_reserved_external_ip
-
-    mgr_host = module.mgr.mgr_reserved_external_ip
-
-    rbd_host = module.rbd.rbd_reserved_external_ip
-
-  }
-}
-
-resource "local_file" "cephadm_config_file" {
-  content  = data.template_file.cephadm_config.rendered
-  filename = "cephadm-config.yaml"
-}
