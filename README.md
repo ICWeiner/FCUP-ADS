@@ -16,12 +16,12 @@ All machines have the same base configuration in terms of hardware with the exce
 
 For ceph deployment we used the recommended tool (by the ceph developers), cephadm.
 
-You will find a full guide on deploying this cluster setup in " general_config.md
+You will find a full guide on deploying this cluster setup in " general_config.md ".
 
 To effectively demonstrate the functioning of the cluster a postgres database is installed on the RBD, with backups being done on a scheduled basis by the backup server node.
 
 Postgres is also configured to accept remote connections, so you may use pgadmin if you'd like.
 
-Daniela Tomás up202004946
-Diogo Nunes up202007895
-João Veloso up202005801
+Daniela Tomás up202004946  
+Diogo Nunes up202007895  
+João Veloso up202005801  
